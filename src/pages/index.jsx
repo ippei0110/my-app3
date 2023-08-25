@@ -11,18 +11,18 @@ export default function Home() {
   const [isShow, setIsShow] = useState(true);
 
   const handleClick = useCallback(() => {
-    if (count < 10) {
-      setCount((count) => count + 1);
+    if (prevCount < 10) {
+      setCount((prevCount) => prevCount + 1);
     }
   }, []);
 
   const handleDisplay = useCallback(() => {
-    setIsShow((isShow) => !isShow);
+    setIsShow((prevIsShow) => !prevIsShow);
   }, []);
 
   const handleChange = useCallback((e) => {
     if (e.target.value.length > 5) {
-      alert("5文字以上にしてください");
+      alert("5文字以内にしてください");
       return;
     }
     setText(e.target.value.trim());
